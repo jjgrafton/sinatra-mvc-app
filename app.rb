@@ -17,9 +17,13 @@ end
 
 get "/robots" do
     Robot.where("angry" = "true"). destroy_all
-    get "/robots" do
-        Robot.find(1).destroy
-        @all_robots = Robot.all
+    @all_robots = Robot.all
     
     end
+end
+
+get "/robots" do
+    robot = Robot.find(1)
+    robot.update(name: "This is my new name!")
+
 end
